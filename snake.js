@@ -61,3 +61,18 @@ class Food {
 
 
 }
+
+/* 
+The Snake Class
+An instance of the Snake class has the following attributes;
+- It starts off with a location (array of arrays)
+- It can 'move'
+- It can update its size (after a collision with food)
+- It can change direction
+- It can render
+- It can check position (collision with boundaries of arena)
+*/
+
+class Snake {
+
+}
