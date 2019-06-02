@@ -57,7 +57,17 @@ An instance of the Food class has the following characteristics
 */
 
 class Food {
+    // Food is initialized with an x, y coordinate. 
+    // times_eaten (score) is default to 0
+    constructor (x, y) {
+        this.x = x;
+        this.y = y;
+        this.times_eaten = 0;
+    }
 
+    show () {
+        
+    }
 
 
 }
