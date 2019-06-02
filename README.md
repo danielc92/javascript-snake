@@ -1,36 +1,27 @@
-# Project Title
-A few sentences about the project.
-What are you building?
-What problem are you trying to solve?
-Who is the project for? Timeframe?
+# Javascript Snake
+Rebuilding the infamous snake game using vanilla Javascript and P5.js (Processing). The purpose of this project is to do an applied learning project using Javascript in order to reinforce and heavily apply learnings about;
 
-# Before you get started
-Concepts/Software/Programming modules a user may have to read up on before getting started with this project. eg. 'Read about [neural networks](https://towardsdatascience.com/how-to-build-your-own-neural-network-from-scratch-in-python-68998a08e4f6?gi=44b811975215) before getting started.'
+- Classes
+- Arrays
+- Functions
+- DOM API
+- Variable Scope
+- Loops
+- Higher order functions (map, filter)
 
 # Setup
 **How to obtain this repository:**
 ```sh
-git clone https//link.to.this.projects.git-repo
+git clone https://github.com/danielc92/javascript-snake.git
 ```
 **Modules/dependencies:**
-- `pandas`
-- `requests`
-- `jupyter`
-- `sklearn`
-
-Install the following dependences:
-```sh
-cd /local/location/of/this/repo
-pip install requirements.txt
-```
+- `p5.js`
 
 # Tests
 - Tests performed on this project. What did you do? Which files were used? Was it successful?
 
 # Contributors
-- Name of Contributor 1
-- Name of Contributor 2
+- Daniel Corcoran
 
 # Sources
-- Sources for techniques/tutorials used in this project to help newcomers
-- Sources for data used in this project
+- [Inspirating drawn from Coding Train](https://www.youtube.com/watch?v=AaGK-fj-BAM)
