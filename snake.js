@@ -17,6 +17,11 @@ for (let i = 0; i <= w - offset; i += offset) {
 
 
 
+// Used to generate a random point
+function randomPoint() {
+    let n = Math.floor(Math.random() * points.length);
+    return points[n];
+}
 
 
 // Initial setup function
@@ -41,3 +46,18 @@ function draw () {
 }
 
 
+/*
+The Food class
+An instance of the Food class has the following characteristics
+- It starts with an x, y position
+- It can detect a collision with a snake object
+- It can render on canvas
+- It can move or rellocate based on the outcome of the collision function
+- It keeps track of how many times it rellocates (the score in other words)
+*/
+
+class Food {
+
+
+    
+}
