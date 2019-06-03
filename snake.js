@@ -2,10 +2,12 @@
 Global variables setup
 The arena is to be square, so height will equal width
 offset is the size of each square, for now let it be 20
+ensure that offset is a equal division of w/h
 */
-let w = 400;
+let w = 600;
 let h = w;
 let offset = 20;
+let frame_rate = 14;
 let points = [];
 
 
@@ -29,7 +31,7 @@ function setup () {
     createCanvas(w, h);
    
     // Set frame rate
-    frameRate(14);
+    frameRate(frame_rate);
 
     // Initialize instance of food and snake
     snake = new Snake(x = randomPoint(), y = randomPoint());
@@ -45,6 +47,12 @@ function draw () {
     snake.checkPosition();
     snake.move();
     snake.show();
+
+    // Snake collision function
+    // if (snake.collision()) {
+    //     noLoop();
+    //     console.log('GameOver');
+    // }
     
     snake.checkTrimStatus();
     console.log(snake.location.length);
