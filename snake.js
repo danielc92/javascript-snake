@@ -128,8 +128,21 @@ class Snake {
         for (let i = 0; i < this.locations_to_show; i++) {
             rect(this.loc[i][0], this.loc[i][1], offset, offset);
         }
-
-    
-        
     }
+
+
+    // Update direction based on key press in browser
+    updateDirection() {
+        if (keyCode == UP_ARROW) {
+            this.dir = 'U';
+        } else if (keyCode == RIGHT_ARROW) {
+            this.dir = 'R';
+        } else if (keyCode == LEFT_ARROW) {
+            this.dir = 'L';
+        } else if (keyCode == DOWN_ARROW) {
+            this.dir = 'D';
+        }
+    }
+    
+
 }
