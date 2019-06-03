@@ -47,7 +47,6 @@ function draw () {
     snake.show();
     
     snake.checkTrimStatus();
-    snake.trimLocations();
     console.log(snake.trim);
     console.log(snake.location.length);
 
@@ -134,24 +133,19 @@ class Snake {
         this.location = [[x, y]];
         this.locations_to_show = 1;
         this.max_size = points.length ** 2;
-        this.trim = false;
     }
 
 
     // If this status is true we can begin trimming the snake array
     // To make the game more memory efficient
     checkTrimStatus () {
-        if (this.location.length > this.max_size) {
-            this.trim = true;
+        let n = this.location.length - this.max_size
+        if (n > 0) {
+            for (let i = 0; i < n; i ++){
+                this.location.pop();
+            }
         }
-    }
-
-
-    // Trim the location array from the END one position
-    trimLocations () {
-        if (this.trim) {
-            this.location.pop();
-        }
+        
     }
 
     // Updater function for locations to show
