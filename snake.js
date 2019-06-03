@@ -67,11 +67,19 @@ function draw () {
 
     /* 
     Snake collision boilerplate
-    if (snake.collision()) {
-         noLoop();
-         console.log('GameOver');
-    } 
+    
      */
+
+    for (let i = 0; i < snake.locations_to_show; i++) {
+        if (i > 0) {
+            if((snake.location[i][0] == snake.location[0][0]) & (snake.location[i][1] == snake.location[0][1])) {
+                alert('You died!');
+                location.reload();
+            } 
+
+
+        }
+    }
 }
 
 
