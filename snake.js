@@ -166,6 +166,31 @@ class Snake {
         // After move unshift location
         this.loc.unshift([curr_x, curr_y])
     }
+
+
+    // Check position function to unshift new location based on wall collisions
+    // The snake will be able to pass through walls and carry on from opposite walls
+    checkPos () {
+        let temp_x = this.loc[0][0];
+        let temp_y = this.loc[0][1];
+
+        if ((temp_x > w) & (this.dir == 'R')) {
+            this.loc.unshift([0, temp_y]);
+        }
+
+        if ((temp_y > h) & (this.dir == 'D')) {
+            this.loc.unshift([temp_x, 0]);
+        }
+
+        if ((temp_x < 0) & (this.dir == 'L')) {
+            this.loc.unshift([w - offset, temp_y]);
+        }
+
+        if ((temp_y < 0) & (this.dir == 'U')) {
+            this.loc.unshift([temp_x, h - offset]);
+        }
+
+    }
     
 
 }
