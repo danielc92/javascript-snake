@@ -105,5 +105,14 @@ An instance of the Snake class has the following attributes;
 */
 
 class Snake {
-
+    /*
+    Initialize a Snake object with a location array,
+    default location to show of 1 (this increases with food collisions)
+    Default direction of 'R' (right)
+    */
+    constructor (x, y) {
+        this.dir = 'R';
+        this.location = [[x, y]];
+        this.locations_to_show = 1;
+    }
 }
