@@ -41,30 +41,37 @@ function setup () {
 
 // Draw function loops indefinitely
 function draw () {
+
+
     // Colour background black
     background(0);
+
+
+    // Calculate snake position, render, check trim status
     snake.updateDirection();
     snake.checkPosition();
     snake.move();
     snake.show();
-
-    // Snake collision function
-    // if (snake.collision()) {
-    //     noLoop();
-    //     console.log('GameOver');
-    // }
-    
     snake.checkTrimStatus();
-    console.log(snake.location.length);
 
+    
+    // Check if collision with snake head and food location
     if (food.checkCollision(snake.location[0][0], snake.location[0][1])) {
         food.rellocate();
-        console.log(`Food rellocated to at ${food.x}, ${food.y}`);
         snake.updateLocationsToShow();
-        
-        //document.getElementById('score-counter').innerHTML = food.score;
     }
+
+    // Render food
     food.show();
+
+
+    /* 
+    Snake collision boilerplate
+    if (snake.collision()) {
+         noLoop();
+         console.log('GameOver');
+    } 
+     */
 }
 
 
