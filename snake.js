@@ -42,6 +42,21 @@ function draw () {
     // Colour background black
     background(0);
 
+    snake.updateDirection();
+    snake.checkPosition();
+    snake.move();
+    snake.show();
+
+    if (food.checkCollision(snake.loc[0][0], snake.loc[0][1])) {
+        food.rellocate();
+        console.log(`Food rellocated to at ${food.x}, ${food.y}`);
+        snake.updateLocationsToShow();
+        
+        //document.getElementById('score-counter').innerHTML = food.score;
+    }
+    food.show();
+
+
 }
 
 
@@ -169,7 +184,7 @@ class Snake {
 
     // Check position function to unshift new location based on wall collisions
     // The snake will be able to pass through walls and carry on from opposite walls
-    checkPos () {
+    checkPosition () {
         let temp_x = this.loc[0][0];
         let temp_y = this.loc[0][1];
 
