@@ -3,7 +3,7 @@ Global variables setup
 The arena is to be square, so height will equal width
 offset is the size of each square, for now let it be 20
 */
-let w = 1000;
+let w = 400;
 let h = w;
 let offset = 20;
 let points = [];
@@ -34,6 +34,8 @@ function setup () {
     // Initialize instance of food and snake
     snake = new Snake(x = randomPoint(), y = randomPoint());
     food = new Food(x = randomPoint(), y = randomPoint());
+    console.log(snake);
+    console.log(food);
 }
 
 
@@ -41,13 +43,12 @@ function setup () {
 function draw () {
     // Colour background black
     background(0);
-
     snake.updateDirection();
     snake.checkPosition();
     snake.move();
     snake.show();
 
-    if (food.checkCollision(snake.loc[0][0], snake.loc[0][1])) {
+    if (food.checkCollision(snake.location[0][0], snake.location[0][1])) {
         food.rellocate();
         console.log(`Food rellocated to at ${food.x}, ${food.y}`);
         snake.updateLocationsToShow();
@@ -140,7 +141,7 @@ class Snake {
     // Rendering function
     show () {
         for (let i = 0; i < this.locations_to_show; i++) {
-            rect(this.loc[i][0], this.loc[i][1], offset, offset);
+            rect(this.location[i][0], this.location[i][1], offset, offset);
         }
     }
 
@@ -164,44 +165,44 @@ class Snake {
         let curr_x;
         let curr_y;
         if (this.dir == 'L') {
-            curr_x = this.loc[0][0] - offset;
-            curr_y = this.loc[0][1];
+            curr_x = this.location[0][0] - offset;
+            curr_y = this.location[0][1];
         } else if (this.dir == 'R') {
-            curr_x = this.loc[0][0] + offset;
-            curr_y = this.loc[0][1];
+            curr_x = this.location[0][0] + offset;
+            curr_y = this.location[0][1];
         } else if (this.dir == 'U') {
-            curr_x = this.loc[0][0];
-            curr_y = this.loc[0][1] - offset;
+            curr_x = this.location[0][0];
+            curr_y = this.location[0][1] - offset;
         } else if (this.dir == 'D') {
-            curr_x = this.loc[0][0];
-            curr_y = this.loc[0][1] + offset;
+            curr_x = this.location[0][0];
+            curr_y = this.location[0][1] + offset;
         } 
 
         // After move unshift location
-        this.loc.unshift([curr_x, curr_y])
+        this.location.unshift([curr_x, curr_y])
     }
 
 
     // Check position function to unshift new location based on wall collisions
     // The snake will be able to pass through walls and carry on from opposite walls
     checkPosition () {
-        let temp_x = this.loc[0][0];
-        let temp_y = this.loc[0][1];
+        let temp_x = this.location[0][0];
+        let temp_y = this.location[0][1];
 
         if ((temp_x > w) & (this.dir == 'R')) {
-            this.loc.unshift([0, temp_y]);
+            this.location.unshift([0, temp_y]);
         }
 
         if ((temp_y > h) & (this.dir == 'D')) {
-            this.loc.unshift([temp_x, 0]);
+            this.location.unshift([temp_x, 0]);
         }
 
         if ((temp_x < 0) & (this.dir == 'L')) {
-            this.loc.unshift([w - offset, temp_y]);
+            this.location.unshift([w - offset, temp_y]);
         }
 
         if ((temp_y < 0) & (this.dir == 'U')) {
-            this.loc.unshift([temp_x, h - offset]);
+            this.location.unshift([temp_x, h - offset]);
         }
 
     }
