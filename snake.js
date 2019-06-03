@@ -143,6 +143,29 @@ class Snake {
             this.dir = 'D';
         }
     }
+
+
+    // Move function will unshift a new location into the location array conditionally based on direction
+    move () {
+        let curr_x;
+        let curr_y;
+        if (this.dir == 'L') {
+            curr_x = this.loc[0][0] - offset;
+            curr_y = this.loc[0][1];
+        } else if (this.dir == 'R') {
+            curr_x = this.loc[0][0] + offset;
+            curr_y = this.loc[0][1];
+        } else if (this.dir == 'U') {
+            curr_x = this.loc[0][0];
+            curr_y = this.loc[0][1] - offset;
+        } else if (this.dir == 'D') {
+            curr_x = this.loc[0][0];
+            curr_y = this.loc[0][1] + offset;
+        } 
+
+        // After move unshift location
+        this.loc.unshift([curr_x, curr_y])
+    }
     
 
 }
