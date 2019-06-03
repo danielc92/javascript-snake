@@ -48,7 +48,7 @@ function draw () {
     
     snake.checkTrimStatus();
     snake.trimLocations();
-
+    console.log(snake.trim);
     console.log(snake.location.length);
 
     if (food.checkCollision(snake.location[0][0], snake.location[0][1])) {
@@ -126,12 +126,14 @@ class Snake {
     Initialize a Snake object with a location array,
     default location to show of 1 (this increases with food collisions)
     Default direction of 'R' (right)
+    Default trim to false (changed when size reaches threshhold)
+    Max size set to lenght of possible points array squared (only holds true when arena is a square)
     */
     constructor (x, y) {
         this.dir = 'R';
         this.location = [[x, y]];
         this.locations_to_show = 1;
-        this.max_size = w * h;
+        this.max_size = points.length ** 2;
         this.trim = false;
     }
 
@@ -139,7 +141,7 @@ class Snake {
     // If this status is true we can begin trimming the snake array
     // To make the game more memory efficient
     checkTrimStatus () {
-        if (this.locations_to_show > this.max_size) {
+        if (this.location.length > this.max_size) {
             this.trim = true;
         }
     }
