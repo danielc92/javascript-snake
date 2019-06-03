@@ -4,7 +4,7 @@ The arena is to be square, so height will equal width
 offset is the size of each square, for now let it be 20
 ensure that offset is a equal division of w/h
 */
-let w = 600;
+let w = 900;
 let h = w;
 let offset = 20;
 let frame_rate = 14;
@@ -186,13 +186,13 @@ class Snake {
 
     // Update direction based on key press in browser
     updateDirection() {
-        if (keyCode == UP_ARROW) {
+        if ((keyCode == UP_ARROW) & (this.dir != 'D')) {
             this.dir = 'U';
-        } else if (keyCode == RIGHT_ARROW) {
+        } else if ((keyCode == RIGHT_ARROW) & (this.dir != 'L')) {
             this.dir = 'R';
-        } else if (keyCode == LEFT_ARROW) {
+        } else if ((keyCode == LEFT_ARROW) & (this.dir != 'R')) {
             this.dir = 'L';
-        } else if (keyCode == DOWN_ARROW) {
+        } else if ((keyCode == DOWN_ARROW) & (this.dir != 'U')) {
             this.dir = 'D';
         }
     }
