@@ -16,7 +16,6 @@ for (let i = 0; i <= w - offset; i += offset) {
 }
 
 
-
 // Used to generate a random point
 function randomPoint() {
     let n = Math.floor(Math.random() * points.length);
@@ -33,8 +32,8 @@ function setup () {
     frameRate(14);
 
     // Initialize instance of food and snake
-
-
+    snake = new Snake(x = randomPoint(), y = randomPoint());
+    food = new Food(x = randomPoint(), y = randomPoint());
 }
 
 
