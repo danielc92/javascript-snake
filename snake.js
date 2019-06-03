@@ -34,8 +34,6 @@ function setup () {
     // Initialize instance of food and snake
     snake = new Snake(x = randomPoint(), y = randomPoint());
     food = new Food(x = randomPoint(), y = randomPoint());
-    console.log(snake);
-    console.log(food);
 }
 
 
@@ -47,6 +45,8 @@ function draw () {
     snake.checkPosition();
     snake.move();
     snake.show();
+
+    console.log(snake.location[0], food.x, food.y);
 
     if (food.checkCollision(snake.location[0][0], snake.location[0][1])) {
         food.rellocate();
@@ -91,7 +91,7 @@ class Food {
     // Check if the snake head position collides with food position
     // If true return true and increment times_eaten value
     checkCollision (snake_x, snake_y) {
-        if ((this.x == snake_x) & (this.y == snake_x.y)) {
+        if ((this.x == snake_x) & (this.y == snake_y)) {
             this.times_eaten += 1;
             return true
         }
