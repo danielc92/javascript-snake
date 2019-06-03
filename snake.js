@@ -47,7 +47,6 @@ function draw () {
     snake.show();
     
     snake.checkTrimStatus();
-    console.log(snake.trim);
     console.log(snake.location.length);
 
     if (food.checkCollision(snake.location[0][0], snake.location[0][1])) {
