@@ -45,8 +45,11 @@ function draw () {
     snake.checkPosition();
     snake.move();
     snake.show();
+    
+    snake.checkTrimStatus();
+    snake.trimLocations();
 
-    console.log(snake.location[0], food.x, food.y);
+    console.log(snake.locations.length);
 
     if (food.checkCollision(snake.location[0][0], snake.location[0][1])) {
         food.rellocate();
@@ -56,6 +59,7 @@ function draw () {
         //document.getElementById('score-counter').innerHTML = food.score;
     }
     food.show();
+
 
 
 }
@@ -130,8 +134,26 @@ class Snake {
         this.dir = 'R';
         this.location = [[x, y]];
         this.locations_to_show = 1;
+        this.max_size = w * h;
+        this.trim = false;
     }
 
+
+    // If this status is true we can begin trimming the snake array
+    // To make the game more memory efficient
+    checkTrimStatus () {
+        if (this.locations_to_show > this.max_size) {
+            this.trim = true;
+        }
+    }
+
+
+    // Trim the location array from the END one position
+    trimLocations () {
+        if (this.trim) {
+            this.locations_to_show.pop();
+        }
+    }
 
     // Updater function for locations to show
     updateLocationsToShow() {
