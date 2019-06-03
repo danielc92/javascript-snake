@@ -66,7 +66,14 @@ class Food {
     }
 
     show () {
-        
+
+    }
+
+    checkCollision (snake_x, snake_y) {
+        if ((this.x == snake_x) & (this.y == snake_x.y)) {
+            this.times_eaten += 1;
+            return true
+        }
     }
 
 
