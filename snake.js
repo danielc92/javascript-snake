@@ -49,7 +49,7 @@ function draw () {
     snake.checkTrimStatus();
     snake.trimLocations();
 
-    console.log(snake.locations.length);
+    console.log(snake.location.length);
 
     if (food.checkCollision(snake.location[0][0], snake.location[0][1])) {
         food.rellocate();
@@ -59,9 +59,6 @@ function draw () {
         //document.getElementById('score-counter').innerHTML = food.score;
     }
     food.show();
-
-
-
 }
 
 
