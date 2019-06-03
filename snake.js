@@ -115,4 +115,21 @@ class Snake {
         this.location = [[x, y]];
         this.locations_to_show = 1;
     }
+
+
+    // Updater function for locations to show
+    updateLocationsToShow() {
+        this.locations_to_show += 1;
+    }
+
+
+    // Rendering function
+    show () {
+        for (let i = 0; i < this.locations_to_show; i++) {
+            rect(this.loc[i][0], this.loc[i][1], offset, offset);
+        }
+
+    
+        
+    }
 }
