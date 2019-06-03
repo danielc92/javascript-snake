@@ -84,6 +84,7 @@ class Food {
     // Render the Food at its current position
     // Size set to the offset global variable
     show () {
+        fill(0, 255, 0);
         rect(this.x, this.y, offset, offset);
     }
 
