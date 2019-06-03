@@ -150,7 +150,7 @@ class Snake {
     // Trim the location array from the END one position
     trimLocations () {
         if (this.trim) {
-            this.locations_to_show.pop();
+            this.location.pop();
         }
     }
 
