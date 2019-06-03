@@ -65,16 +65,30 @@ class Food {
         this.times_eaten = 0;
     }
 
-    show () {
 
+    // Render the Food at its current position
+    // Size set to the offset global variable
+    show () {
+        rect(this.x, this.y, offset, offset);
     }
 
+
+    // Check if the snake head position collides with food position
+    // If true return true and increment times_eaten value
     checkCollision (snake_x, snake_y) {
         if ((this.x == snake_x) & (this.y == snake_x.y)) {
             this.times_eaten += 1;
             return true
         }
     }
+
+
+    // Simply rellocates position of Food
+    rellocate () {
+        this.x = randomPoint();
+        this.y = randomPoint();
+    }
+
 
 
 }
